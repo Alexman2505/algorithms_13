@@ -1,4 +1,4 @@
-# 88495145
+# 88495397
 from typing import List, Tuple
 
 
@@ -26,12 +26,10 @@ def partition(array: List[Tuple[str, int, int]], start: int, end: int) -> int:
     """Выполняет разделение массива на подмассивы в соответствии с опорным элементом.
 
     Используется алгоритм Хоара для разделения массива на две части вокруг опорного элемента.
-
     Args:
         array: Массив для разделения.
         start: Индекс начала подмассива.
         end: Индекс конца подмассива.
-
     Returns:
         Индекс опорного элемента.
     """
@@ -57,7 +55,6 @@ def quick_sort(
     """Выполняет сортировку списка по заданным критериям (in-place).
 
     Используется модификация алгоритма быстрой сортировки "in-place".
-
     Args:
         array: Список для сортировки.
         left: Индекс начала списка.
@@ -69,14 +66,12 @@ def quick_sort(
         quick_sort(array, pivot_index + 1, right)
 
 
-# Чтение входных данных
 n = int(input())
 participants = []
 for _ in range(n):
     login, tasks, penalty = input().split()
-    participants.append((login, int(tasks), int(penalty)))
+    participants.append((str(login), int(tasks), int(penalty)))
 
-# Сортировка и вывод результатов
 quick_sort(participants, 0, n - 1)
 for participant in participants:
     login, _, _ = participant
