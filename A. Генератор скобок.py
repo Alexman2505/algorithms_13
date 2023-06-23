@@ -13,4 +13,3 @@ control = 0
 n1 = n
 n2 = n
 scobka(control, n1, n2, '')
-# aa
