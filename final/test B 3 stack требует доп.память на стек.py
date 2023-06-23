@@ -1,3 +1,5 @@
+# Плохой код,требует память на стек
+
 from typing import List, Tuple
 
 
