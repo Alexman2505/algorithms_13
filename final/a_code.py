@@ -1,4 +1,4 @@
-# 88488493
+# 88499035
 def broken_search(nums, target) -> int:
     """Ищет целевой элемент в отсортированном, но сломанном массиве
     с использованием модифицированного алгоритма бинарного поиска.
@@ -28,8 +28,7 @@ def broken_search(nums, target) -> int:
             and (target < nums[middle] or target >= nums[left])
         ):
             return left, middle - 1
-        else:
-            return middle + 1, right
+        return middle + 1, right
 
     left = 0
     right = len(nums) - 1
