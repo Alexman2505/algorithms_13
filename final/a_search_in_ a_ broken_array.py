@@ -1,4 +1,4 @@
-# 88499035
+# 88542319
 def broken_search(nums, target) -> int:
     """Ищет целевой элемент в отсортированном, но сломанном массиве
     с использованием модифицированного алгоритма бинарного поиска.
@@ -22,10 +22,9 @@ def broken_search(nums, target) -> int:
         Возвращает:
             Tuple[int, int]: Кортеж, представляющий обновленный диапазон поиска (left, right).
         """
-
-        if nums[left] <= target < nums[middle] or (
-            nums[middle] <= nums[right] < nums[left]
-            and (target < nums[middle] or target >= nums[left])
+        if left_value < target < middle_value or (
+            middle_value <= nums[right] < left_value
+            and (target < middle_value or target > left_value)
         ):
             return left, middle - 1
         return middle + 1, right
@@ -34,7 +33,13 @@ def broken_search(nums, target) -> int:
     right = len(nums) - 1
     while left <= right:
         middle = (left + right) // 2
-        if nums[middle] == target:
+        middle_value = nums[middle]
+        left_value = nums[left]
+
+        if middle_value == target:
             return middle
+        if left_value == target:
+            return left
+
         left, right = update_search_range(left, right, middle, target)
     return -1
