@@ -1,5 +1,8 @@
+# 88543131
 def broken_search(nums, target) -> int:
-    def update_search_range(left, right, middle, target):
+    def update_search_range(
+        left, right, middle, target, left_value, middle_value
+    ):
         if left_value < target < middle_value or (
             middle_value <= nums[right] < left_value
             and (target < middle_value or target > left_value)
@@ -19,13 +22,15 @@ def broken_search(nums, target) -> int:
         if left_value == target:
             return left
 
-        left, right = update_search_range(left, right, middle, target)
+        left, right = update_search_range(
+            left, right, middle, target, left_value, middle_value
+        )
     return -1
 
 
 def test():
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
-    print(broken_search(arr, 1))
+    print(broken_search(arr, 2))
 
 
 test()
